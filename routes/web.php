@@ -20,12 +20,16 @@ use App\Http\Controllers\AdminController;
 
 Route::get("/",[HomeController::class,"index"]);
 Route::get("/users",[AdminController::class,"user"]);
+Route::get("/deletemenu/{id}",[AdminController::class,"deletemenu"]);
+
 Route::get("/foodmenu",[AdminController::class,"foodmenu"]);
 Route::post("/uploadfood",[AdminController::class,"upload"]);
 
 
 
 Route::get("/deleteuser/{id}",[AdminController::class,"deleteuser"]);
+Route::get("/updateview/{id}",[AdminController::class,"updateview"]);
+Route::post("/update/{id}",[AdminController::class,"update"]);
 
 
 
