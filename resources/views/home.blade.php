@@ -10,7 +10,9 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <title>Klassy Cafe - Restaurant HTML Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <title>SpicyMew Food Corner</title>
 <!--
     
 TemplateMo 558 Klassy Cafe
@@ -51,40 +53,17 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
+                        
+                        <a href="#" class="logo" style="color:#FF6B6B;;"><i class="fas fa-cat"></i>SpicyMew</a>
 
-                            <a  class="menu-trigger">
-
-                                <span>Menu</span>
-
-
-
-                            </a>
-
-                        </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#about">About</a></li>
-                           	
-                        <!-- 
-                            <li class="submenu">
-                                <a href="javascript:;">Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Drop Down Page 1</a></li>
-                                    <li><a href="#">Drop Down Page 2</a></li>
-                                    <li><a href="#">Drop Down Page 3</a></li>
-                                </ul>
-                            </li>
-                        -->
+                            <li class="scroll-to-section"><a href="#about">About</a></li>                       
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
-                            <li class="scroll-to-section"><a href="#chefs">Chefs</a></li> 
-                            
-                            <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
+                            <li class="scroll-to-section"><a href="#chefs">Chefs</a></li>                             
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
-
                             <li  class="scroll-to-section" style="background-color:pink;">
 
                             @auth
@@ -96,7 +75,6 @@ https://templatemo.com/tm-558-klassy-cafe
                             
                             </a>
 
-
                             @endauth
 
                             @guest
@@ -104,7 +82,6 @@ https://templatemo.com/tm-558-klassy-cafe
                             @endguest
                             </li> 
 
-                        
                         <li>
 
 <!-- login and register -->
@@ -129,15 +106,11 @@ https://templatemo.com/tm-558-klassy-cafe
 
                     @endauth
                 </div>
-            @endif
+                @endif
 
-                        </li>
+                    </li>
                         
-                        
-                        
-                        
-                        
-                        </ul>        
+                      </ul>        
                         <a class='menu-trigger'>
                             <!-- <span>Menu</span> -->
                         </a>
@@ -156,8 +129,8 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-lg-4">
                     <div class="left-content">
                         <div class="inner-content">
-                            <h4>KlassyCafe</h4>
-                            <h6>THE BEST EXPERIENCE</h6>
+                            <h4>SpicyMew</h4>
+                            <h6>Where spice meets flavor!!!</h6>
                             <div class="main-white-button scroll-to-section">
                                 <a href="#reservation">Make A Reservation</a>
                             </div>
@@ -220,14 +193,16 @@ https://templatemo.com/tm-558-klassy-cafe
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="right-content">
                         <div class="thumb">
-                            <a rel="nofollow" href="http://youtube.com"><i class="fa fa-play"></i></a>
-                            <img src="assets/images/about-video-bg.jpg" alt="">
+                            <img src="assets/images/chibir.png" alt="" style="margin-top: 88px;">
                         </div>
                     </div>
                 </div>
+
+                
             </div>
         </div>
     </section>
@@ -238,6 +213,7 @@ https://templatemo.com/tm-558-klassy-cafe
     @include("foodchef")
     
     @include("reservation")
+    
 
     <!-- ***** Menu Area Starts ***** -->
     <section class="section" id="offers">

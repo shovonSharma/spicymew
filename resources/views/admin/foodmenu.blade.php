@@ -1,89 +1,128 @@
-<x-app-layout>
-   
+<x-app-layout> 
     
 </x-app-layout>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 10px;
+      }
 
+      .container-scroller {
+        padding: 20px;
+      }
+
+      form {
+        margin-bottom: 20px;
+      }
+
+      form div {
+        margin-bottom: 10px;
+      }
+
+      form label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      form input[type="text"],
+      form input[type="number"],
+      form input[type="file"],
+      form input[type="submit"] {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table th,
+      table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+      }
+
+      table th {
+        background-color: #f2f2f2;
+      }
+
+      table td img {
+        max-width: 200px;
+        max-height: 200px;
+      }
+
+      a {
+        color: green;
+        text-decoration: none;
+      }
+
+      div.overflow-scroll {
+        overflow: scroll;
+      }
+    </style>
     @include("admin.admincss")
-
   </head>
 
-  <body style ="padding : 10px">
-
-
+  <body>
     <div class="container-scroller">
-    
-    @include("admin.navbar")
+      @include("admin.navbar")
 
-    <div style="position:relative; top:77px; right: -120px;">
-
-        <form action ="{{url('/uploadfood')}}" method="post" enctype="multipart/form-data">
-
-            @csrf
-
-            <div>
-                <label>Title</label>
-                <input type="text" name="title" placeholder="Write a Title" required>
-            </div>
-
-            <div>
-                <label>Price</label>
-                <input type="num" name="price" placeholder="Price" required>
-            </div>
-
-            <div>
-                <label>Image</label>
-                <input type="file" name="image"  required>
-            </div>
-
-            <div>
-                <label>Description</label>
-                <input type="text" name="description" placeholder="Description" required>
-            </div>
-
-            <div>
-                
-                <input style="color: green" type="submit" value="Save">
-            </div>
+      <div style="position:relative; top:28px; right: -30px;">
+        <form action="{{url('/uploadfood')}}" method="post" enctype="multipart/form-data">
+          @csrf
+          <div>
+            <label for="title">Title</label>
+            <input type="text" name="title" placeholder="Write a Title" required>
+          </div>
+          <div>
+            <label for="price">Price</label>
+            <input type="number" name="price" placeholder="Price" required>
+          </div>
+          <div>
+            <label for="image">Image</label>
+            <input type="file" name="image" required>
+          </div>
+          <div>
+            <label for="description">Description</label>
+            <input type="text" name="description" placeholder="Description" required>
+          </div>
+          <div>
+            <input type="submit" value="Save">
+          </div>
         </form>
 
+        <div class="overflow-scroll">
+          <table>
+            <tr>
+              <th>Food Name</th>
+              <th>Price</th>
+              <th>Description</th>
+              <th>Image</th>
+              <th>Action1</th>
+              <th>Action2</th>
+            </tr>
 
-        <div style ="overflow:scroll">
-
-            <table bgcolor="black">
-                <tr>
-                    <th style="padding: 30px">Food Name</th>
-                    <th style="padding: 30px">Price </th>
-                    <th style="padding: 30px">Description</th>
-                    <th style="padding: 30px">Image</th>
-                    <th style="padding: 30px">Action1</th>
-                    <th style="padding: 30px">Action2</th>
-
-
-                </tr>
-
-                @foreach($data as $data)
-                <tr align="center">
-                    <td>{{$data->title}}</td>
-                    <td>{{$data->price}}</td>
-                    <td>{{$data->description}}</td>
-                    <td><img height="200" width="200" src="/foodimage/{{$data->image}}"></td>
-                    <td><a href= "{{url('/deletemenu',$data->id)}}">Delete</a></td>
-                    <td><a href= "{{url('/updateview',$data->id)}}">Update</a></td>
-
-
-                </tr>
-                @endforeach
-
-            </table>
-
+            @foreach($data as $data)
+            <tr align="center">
+              <td>{{$data->title}}</td>
+              <td>{{$data->price}}</td>
+              <td>{{$data->description}}</td>
+              <td><img src="/foodimage/{{$data->image}}" alt="Food Image"></td>
+              <td><a href="{{url('/deletemenu',$data->id)}}">Delete</a></td>
+              <td><a href="{{url('/updateview',$data->id)}}">Update</a></td>
+            </tr>
+            @endforeach
+          </table>
         </div>
-
-    </div>
-
+      </div>
     </div>
     @include("admin.adminscript")
   </body>
