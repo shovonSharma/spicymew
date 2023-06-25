@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-</head>
-<body>
-
 <x-app-layout>
    
     
@@ -16,7 +7,23 @@
 <html lang="en">
   <head>
 
-    @include("admin.admincss")
+    @include("admin.admincss")  
+    
+    <style>
+    table {
+        margin: 0 auto;
+        background-color: #87CEEB;
+        
+    }
+    
+    th, td {
+        padding: 20px;
+    }
+    
+    th {
+        background-color: #f2f2f2;
+    }
+    </style>
     
 
   </head>
@@ -28,14 +35,13 @@
 
     <!-- <h1>HAR HAR MAHADEV</h1> -->
       <div style="position:relative; top: 88px; right:-120px">
-        <table border="3px">
+        <table >
+
           <tr>
-            <th style="padding: 30px">NAME</th>
-            <th style="padding: 30px">EMAIL</th>
-            <th style="padding: 30px">Action</th>
+            <th style="color: lightcoral ;padding: 30px">NAME</th>
+            <th style="color: lightcoral ;padding: 30px">EMAIL</th>
+            <th style="color: lightcoral ;padding: 30px">Action</th>
           </tr>
-
-
 
           @foreach($data as $data)
           <tr align="center">
@@ -43,7 +49,7 @@
             <td>{{$data->email}}</td>
 
             @if($data->usertype=="0")
-            <td><a href="{{url('/deleteuser',$data->id)}}">Delete</a></td>
+            <td ><a href="{{url('/deleteuser',$data->id)}}">Delete</a></td>
             @else
             <td><a>Not Allowed</a></td>
             @endif

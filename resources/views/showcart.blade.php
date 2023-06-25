@@ -83,16 +83,6 @@ https://templatemo.com/tm-558-klassy-cafe
                         -->
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
                             <li class="scroll-to-section"><a href="#chefs">Chefs</a></li> 
-                            <li class="submenu">
-                                <a href="javascript:;">Features</a>
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a href="#">Features Page 4</a></li>
-                                </ul>
-                            </li>
-                            <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
 
                             <li class="scroll-to-section" style="background-color:pink;">
@@ -161,61 +151,48 @@ https://templatemo.com/tm-558-klassy-cafe
 
 
     <div id="top">
-
     <table align="center" bgcolor="yellow">
         <tr>
-
             <th style="padding:30px;">Food Name</th>
             <th style="padding:30px;">Price</th>
             <th style="padding:30px;">Quantity</th>
             <th style="padding:30px;">Action</th>
-            
-
         </tr>
-
         <form action="{{url('orderconfirm')}}" method="POST">
-
-        @csrf
-
-        @foreach($data as $data)
-        <tr align="center">
-
-            <td>
-                <input type="text" name="foodname[]" value="{{$data->title}}" hidden="">
-                {{$data->title}}
-            </td>
-
-            <td>
-                <input type="text" name="price[]" value="{{$data->price}}" hidden="">
-                
-                {{$data->price}}
-            </td>
-            
-            <td>
-                
-                <input type="text" name="quantity[]" value="{{$data->quantity}}" hidden="">
-                
-                {{$data->quantity}}
-
-            </td>
-
-        </tr>
-        @endforeach
-
-        @foreach($data2 as $data2)
-
-           <tr style="position:relative; top: -60px; right: -360px;"> 
-            <td><a href="{{url('/remove',$data2->id)}}" class="btn btn-warning">Remove</a></td>
-           </tr>
-
-        @endforeach
-
+            @csrf
+            @foreach($data as $dataKey => $dataValue)
+            <tr align="center">
+                <td>
+                    <input type="text" name="foodname[]" value="{{$dataValue->title}}" hidden="">
+                    {{$dataValue->title}}
+                </td>
+                <td>
+                    <input type="text" name="price[]" value="{{$dataValue->price}}" hidden="">
+                    {{$dataValue->price}}
+                </td>
+                <td>
+                    <input type="text" name="quantity[]" value="{{$dataValue->quantity}}" hidden="">
+                    {{$dataValue->quantity}}
+                </td>
+                @if ($dataKey === 0)
+                <td rowspan="{{ count($data2) }}" style="position: relative;">
+                    @foreach($data2 as $data2Value)
+                    <a href="{{url('/remove',$data2Value->id)}}" style="text-decoration: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Remove</a><br>
+                    @endforeach
+                </td>
+                @endif
+            </tr>
+            @endforeach
+        </form>
     </table>
-
     <div align="center" style="padding: 10px;">
-    <button class="btn btn-primary"  type="button"  id="order">Order Now</button>
-
+        <button class="btn btn-primary" type="button" id="order">Order Now</button>
     </div>
+    <div id="appear" align="center" style="padding:10px;">
+        <!-- Order confirmation form content -->
+    </div>
+</div>
+
 
 
     <div id="appear" align="center" style="padding:10px;">

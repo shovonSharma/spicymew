@@ -51,10 +51,13 @@ https://templatemo.com/tm-558-klassy-cafe
         <div class="container">
             <div class="row">
                 <div class="col-12">
+
+
+
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         
-                        <a href="#" class="logo" style="color:#FF6B6B;;"><i class="fas fa-cat"></i>SpicyMew</a>
+                        <a href="#" class="logo" style="color:#FF6B6B;margin-left: 10px;"><i class="fas fa-cat"></i>SpicyMew</a>
 
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
@@ -64,16 +67,11 @@ https://templatemo.com/tm-558-klassy-cafe
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
                             <li class="scroll-to-section"><a href="#chefs">Chefs</a></li>                             
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
-                            <li  class="scroll-to-section" style="background-color:pink;">
+                            <li  class="scroll-to-section" style="background-color: red; color: white; padding: 8px 10px; display: inline-block;">
 
                             @auth
 
-                            <a href="{{url('/showcart',Auth::user()->id)}}">
-
-                            Cart{{$count}}
-
-                            
-                            </a>
+                            <a href="{{url('/showcart',Auth::user()->id)}}">Cart{{$count}}</a>                           
 
                             @endauth
 
@@ -88,7 +86,7 @@ https://templatemo.com/tm-558-klassy-cafe
 
                 @if (Route::has('login'))
 
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10" >
                     @auth                       
                     <li>
                     <x-app-layout>
@@ -110,12 +108,12 @@ https://templatemo.com/tm-558-klassy-cafe
 
                     </li>
                         
-                      </ul>        
-                        <a class='menu-trigger'>
-                            <!-- <span>Menu</span> -->
-                        </a>
+                      </ul>                              
                         <!-- ***** Menu End ***** -->
                     </nav>
+
+
+
                 </div>
             </div>
         </div>
