@@ -11,8 +11,10 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
-    <title>Klassy Cafe - Restaurant HTML Template</title>
+
+    <title>spicymew</title>
 <!--
     
 TemplateMo 558 Klassy Cafe
@@ -62,28 +64,17 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
-                        </a>
+                        <a href="#" class="logo" style="color:#FF6B6B;margin-left: 10px;"><i class="fas fa-cat"></i>SpicyMew</a>
+
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#about">About</a></li>
-                           	
-                        <!-- 
-                            <li class="submenu">
-                                <a href="javascript:;">Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Drop Down Page 1</a></li>
-                                    <li><a href="#">Drop Down Page 2</a></li>
-                                    <li><a href="#">Drop Down Page 3</a></li>
-                                </ul>
-                            </li>
-                        -->
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
                             <li class="scroll-to-section"><a href="#chefs">Chefs</a></li> 
-                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
+                            
+                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
 
                             <li class="scroll-to-section" style="background-color:pink;">
 
@@ -129,15 +120,10 @@ https://templatemo.com/tm-558-klassy-cafe
 
                     @endauth
                 </div>
-            @endif
+                @endif
 
-                        </li>
-                        
-                        
-                        
-                        
-                        
-                        </ul>        
+                    </li>
+                       </ul>        
                         <a class='menu-trigger'>
                             <!-- <span>Menu</span> -->
                         </a>
@@ -151,48 +137,65 @@ https://templatemo.com/tm-558-klassy-cafe
 
 
     <div id="top">
+
     <table align="center" bgcolor="yellow">
         <tr>
-            <th style="padding:30px;">Food Name</th>
-            <th style="padding:30px;">Price</th>
-            <th style="padding:30px;">Quantity</th>
-            <th style="padding:30px;">Action</th>
-        </tr>
-        <form action="{{url('orderconfirm')}}" method="POST">
-            @csrf
-            @foreach($data as $dataKey => $dataValue)
-            <tr align="center">
-                <td>
-                    <input type="text" name="foodname[]" value="{{$dataValue->title}}" hidden="">
-                    {{$dataValue->title}}
-                </td>
-                <td>
-                    <input type="text" name="price[]" value="{{$dataValue->price}}" hidden="">
-                    {{$dataValue->price}}
-                </td>
-                <td>
-                    <input type="text" name="quantity[]" value="{{$dataValue->quantity}}" hidden="">
-                    {{$dataValue->quantity}}
-                </td>
-                @if ($dataKey === 0)
-                <td rowspan="{{ count($data2) }}" style="position: relative;">
-                    @foreach($data2 as $data2Value)
-                    <a href="{{url('/remove',$data2Value->id)}}" style="text-decoration: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Remove</a><br>
-                    @endforeach
-                </td>
-                @endif
-            </tr>
-            @endforeach
-        </form>
-    </table>
-    <div align="center" style="padding: 10px;">
-        <button class="btn btn-primary" type="button" id="order">Order Now</button>
-    </div>
-    <div id="appear" align="center" style="padding:10px;">
-        <!-- Order confirmation form content -->
-    </div>
-</div>
 
+            <th style="padding:20px;">Food Name</th>
+            <th style="padding:20px;">Price</th>
+            <th style="padding:20px;">Quantity</th>
+            <th style="padding:20px;">Action</th>
+            
+
+        </tr>
+
+        <form action="{{url('orderconfirm')}}" method="POST">
+
+        @csrf
+
+        @foreach($data as $data)
+        <tr align="center">
+
+            <td>
+                <input type="text" name="foodname[]" value="{{$data->title}}" hidden="">
+                {{$data->title}}
+            </td>
+
+            <td>
+                <input type="text" name="price[]" value="{{$data->price}}" hidden="">
+                
+                {{$data->price}}
+            </td>
+            
+            <td>
+                
+                <input type="text" name="quantity[]" value="{{$data->quantity}}" hidden="">
+                
+                {{$data->quantity}}
+
+            </td>
+
+        </tr>
+        @endforeach
+
+        
+
+        @foreach($data2 as $data2)
+
+           <tr style="position:relative; top: -00px; right: -360px;"> 
+            <td><a href="{{url('/remove',$data2->id)}}" >Remove</a></td>
+           </tr>
+
+        @endforeach
+
+        
+
+    </table>
+
+    <div align="center" style="padding: 10px;">
+    <button class="btn btn-primary"  type="button"  id="order">Order Now</button>
+
+    </div>
 
 
     <div id="appear" align="center" style="padding:10px;">
